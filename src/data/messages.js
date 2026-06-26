@@ -1,0 +1,92 @@
+export const messages = [
+  {
+    id: 1,
+    text: "Say: 'He is Allah, [who is] One, Allah, the Eternal Refuge. He neither begets nor is born, Nor is there to Him any equivalent.'",
+    source: "Quran 112:1-4",
+    category: "Quran",
+  },
+  {
+    id: 2,
+    text: "Indeed, with hardship will be ease.",
+    source: "Quran 94:6",
+    category: "Quran",
+  },
+  {
+    id: 3,
+    text: "And He is with you wherever you are. And Allah, of what you do, is Seeing.",
+    source: "Quran 57:4",
+    category: "Quran",
+  },
+  {
+    id: 4,
+    text: "So remember Me; I will remember you. And be grateful to Me and do not deny Me.",
+    source: "Quran 2:152",
+    category: "Quran",
+  },
+  {
+    id: 5,
+    text: "Allah does not burden a soul beyond that it can bear.",
+    source: "Quran 2:286",
+    category: "Quran",
+  },
+  {
+    id: 6,
+    text: "And whoever relies upon Allah — then He is sufficient for him. Indeed, Allah will accomplish His purpose.",
+    source: "Quran 65:3",
+    category: "Quran",
+  },
+  {
+    id: 7,
+    text: "The best of you are those who learn the Quran and teach it.",
+    source: "Sahih al-Bukhari 5027",
+    category: "Hadith",
+  },
+  {
+    id: 8,
+    text: "Make things easy and do not make them difficult, cheer people up and do not drive them away.",
+    source: "Sahih al-Bukhari 69",
+    category: "Hadith",
+  },
+  {
+    id: 9,
+    text: "None of you truly believes until he loves for his brother what he loves for himself.",
+    source: "Sahih al-Bukhari 13",
+    category: "Hadith",
+  },
+  {
+    id: 10,
+    text: "Speak good or remain silent.",
+    source: "Sahih al-Bukhari 6018",
+    category: "Hadith",
+  },
+  {
+    id: 11,
+    text: "The strong person is not the one who can overpower others. Rather, the strong person is the one who controls himself when he gets angry.",
+    source: "Sahih al-Bukhari 6114",
+    category: "Hadith",
+  },
+  {
+    id: 12,
+    text: "Islam is built on five pillars: testifying that there is no god but Allah and that Muhammad is the Messenger of Allah, establishing prayer, paying Zakat, fasting Ramadan, and performing Hajj.",
+    source: "Sahih al-Bukhari 8",
+    category: "Hadith",
+  },
+  {
+    id: 13,
+    text: "Dawah is not just about words — it is about living Islam in a way that invites others to see its beauty.",
+    source: "Dawah Reminder",
+    category: "Dawah",
+  },
+  {
+    id: 14,
+    text: "Every good deed you do is a form of Dawah. Smile at someone, help a neighbour, be honest in your dealings.",
+    source: "Dawah Reminder",
+    category: "Dawah",
+  },
+  {
+    id: 15,
+    text: "The best Dawah is a good character. Let your conduct speak of Islam before your tongue does.",
+    source: "Dawah Reminder",
+    category: "Dawah",
+  },
+];
