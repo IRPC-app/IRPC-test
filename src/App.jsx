@@ -1,22 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
-import Browse from "./pages/Browse";
-import Submit from "./pages/Submit";
-import "./App.css";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/browse" element={<Browse />} />
-        <Route path="/submit" element={<Submit />} />
       </Routes>
-      <footer className="footer">
-        <p>May Allah accept our efforts in spreading His message. ☪</p>
-      </footer>
+      <Footer />
     </BrowserRouter>
   );
 }
