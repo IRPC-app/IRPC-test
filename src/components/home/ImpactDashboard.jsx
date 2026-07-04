@@ -1,18 +1,20 @@
-import { impactDashboard } from "../../data/content";
+import { impactDashboard, dashboardCopy } from "../../data/content";
+import { useTranslate } from "../../i18n/LanguageContext";
 
 export default function ImpactDashboard() {
+  const tr = useTranslate();
   return (
     <section id="impact" className="section soft">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow">Our Impact</p>
-          <h2>13+ years of authentic Dawah, in numbers.</h2>
+          <p className="eyebrow">{tr(dashboardCopy.eyebrow)}</p>
+          <h2>{tr(dashboardCopy.heading)}</h2>
         </div>
         <div className="cards dashboard-grid">
           {impactDashboard.map((stat) => (
-            <div className="dashboard-tile" key={stat.label}>
+            <div className="dashboard-tile" key={stat.label.en}>
               <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
+              <span>{tr(stat.label)}</span>
             </div>
           ))}
         </div>

@@ -1,24 +1,23 @@
-import { learnPathways } from "../../data/content";
+import { learnPathways, learnCopy } from "../../data/content";
+import { useTranslate } from "../../i18n/LanguageContext";
 
 export default function LearnIslam() {
+  const tr = useTranslate();
   return (
     <section id="learn" className="section">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow">Start Here</p>
-          <h2>Learn Islam with clarity, wisdom, and evidence.</h2>
-          <p>
-            Whether you are exploring Islam for the first time, strengthening your faith, or
-            preparing for Dawah, IRPC guides you step by step.
-          </p>
+          <p className="eyebrow">{tr(learnCopy.eyebrow)}</p>
+          <h2>{tr(learnCopy.heading)}</h2>
+          <p>{tr(learnCopy.body)}</p>
         </div>
         <div className="cards three">
           {learnPathways.map((item) => (
-            <article className="card" key={item.title}>
+            <article className="card" key={item.title.en}>
               <span className="icon">{item.icon}</span>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-              <a href="#learn">{item.cta} →</a>
+              <h3>{tr(item.title)}</h3>
+              <p>{tr(item.body)}</p>
+              <a href="#learn">{tr(item.cta)} →</a>
             </article>
           ))}
         </div>

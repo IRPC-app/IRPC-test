@@ -1,22 +1,20 @@
-import { researchTopics } from "../../data/content";
+import { researchTopics, researchCopy } from "../../data/content";
+import { useTranslate } from "../../i18n/LanguageContext";
 
 export default function ResearchHub() {
+  const tr = useTranslate();
   return (
     <section id="research" className="section">
       <div className="container split reverse">
         <div className="feature-box">
-          <h3>Research Hub</h3>
-          <p>{researchTopics.join(" • ")}</p>
+          <h3>{tr(researchCopy.hubTitle)}</h3>
+          <p>{researchTopics.map((topic) => tr(topic)).join(" • ")}</p>
         </div>
         <div>
-          <p className="eyebrow">Research & Thought Leadership</p>
-          <h2>Presenting Islam intellectually.</h2>
-          <p>
-            IRPC's research section should become India's trusted destination for authentic
-            Islamic knowledge, comparative religion, and evidence-based responses to
-            misconceptions.
-          </p>
-          <a className="btn btn-secondary" href="#research">Explore Research</a>
+          <p className="eyebrow">{tr(researchCopy.eyebrow)}</p>
+          <h2>{tr(researchCopy.heading)}</h2>
+          <p>{tr(researchCopy.body)}</p>
+          <a className="btn btn-secondary" href="#research">{tr(researchCopy.cta)}</a>
         </div>
       </div>
     </section>

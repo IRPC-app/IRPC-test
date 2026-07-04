@@ -1,26 +1,29 @@
 import { useState } from "react";
-import { navLinks, languages } from "../../data/content";
+import { navLinks, headerCopy, brand } from "../../data/content";
+import { useLanguage, useTranslate, LANGUAGES } from "../../i18n/LanguageContext";
+import irpcLogo from "../../assets/irpc-logo.png";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const [language, setLanguage] = useState(languages[0]);
+  const { language, setLanguage } = useLanguage();
+  const tr = useTranslate();
 
   return (
     <header className="site-header">
       <div className="container nav">
         <a className="logo" href="#top">
-          <span className="logo-mark">IRPC</span>
+          <img className="logo-mark" src={irpcLogo} alt="IRPC" />
           <span className="logo-text">
-            <strong>Islamic Research & Propagation Centre</strong>
-            <span>Know ISLAM, Know Peace.</span>
+            <strong>{tr(brand.name)}</strong>
+            <span>{tr(brand.tagline)}</span>
           </span>
         </a>
 
         <nav className={menuOpen ? "primary-nav open" : "primary-nav"}>
           {navLinks.map((link) => (
             <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
-              {link.label}
+              {tr(link.label)}
             </a>
           ))}
         </nav>
@@ -34,30 +37,30 @@ export default function Header() {
               aria-haspopup="listbox"
               aria-expanded={langOpen}
             >
-              {language} <span aria-hidden="true">▾</span>
+              {LANGUAGES.find((l) => l.code === language)?.label} <span aria-hidden="true">▾</span>
             </button>
             {langOpen && (
               <ul className="lang-menu" role="listbox">
-                {languages.map((lang) => (
-                  <li key={lang}>
+                {LANGUAGES.map((lang) => (
+                  <li key={lang.code}>
                     <button
                       type="button"
                       role="option"
-                      aria-selected={lang === language}
+                      aria-selected={lang.code === language}
                       onClick={() => {
-                        setLanguage(lang);
+                        setLanguage(lang.code);
                         setLangOpen(false);
                       }}
                     >
-                      {lang}
+                      {lang.label}
                     </button>
                   </li>
                 ))}
               </ul>
             )}
           </div>
-          <a className="btn btn-ghost" href="#ai-daee">AI Da'ee</a>
-          <a className="btn btn-primary" href="#donate">Donate</a>
+          <a className="btn btn-ghost" href="#ai-daee">{tr(headerCopy.aiDaee)}</a>
+          <a className="btn btn-primary" href="#donate">{tr(headerCopy.donate)}</a>
           <button
             type="button"
             className="menu-toggle"

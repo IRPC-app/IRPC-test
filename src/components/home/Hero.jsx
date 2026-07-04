@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { quickQuestions, heroStats } from "../../data/content";
+import { quickQuestions, heroCopy, heroStats } from "../../data/content";
+import { useTranslate } from "../../i18n/LanguageContext";
 
 export default function Hero() {
+  const tr = useTranslate();
   const [question, setQuestion] = useState("");
 
   const handleAsk = (event) => {
@@ -14,43 +16,37 @@ export default function Hero() {
       <div className="hero-bg" aria-hidden="true" />
       <div className="container hero-grid">
         <div className="hero-copy">
-          <p className="eyebrow">Know ISLAM, Know Peace.</p>
-          <h1>Ask Anything About Islam.</h1>
-          <p className="subhead">
-            Get calm, authentic, evidence-based answers from the Qur'an, Sunnah, and trusted
-            Islamic scholarship through the IRPC AI Da'ee.
-          </p>
+          <p className="eyebrow">{tr(heroCopy.eyebrow)}</p>
+          <h1>{tr(heroCopy.headline)}</h1>
+          <p className="subhead">{tr(heroCopy.subhead)}</p>
           <form className="ask-card" onSubmit={handleAsk}>
             <input
               value={question}
               onChange={(event) => setQuestion(event.target.value)}
-              placeholder="Ask any question about Islam..."
-              aria-label="Ask any question about Islam"
+              placeholder={tr(heroCopy.placeholder)}
+              aria-label={tr(heroCopy.placeholder)}
             />
-            <button type="submit">Ask AI Da'ee</button>
+            <button type="submit">{tr(heroCopy.askButton)}</button>
           </form>
           <div className="quick-questions">
             {quickQuestions.map((q) => (
-              <button type="button" key={q} onClick={() => setQuestion(q)}>
-                {q}
+              <button type="button" key={q.en} onClick={() => setQuestion(tr(q))}>
+                {tr(q)}
               </button>
             ))}
           </div>
           <div className="hero-actions">
-            <a className="btn btn-primary" href="#ai-daee">Start Asking</a>
-            <a className="btn btn-secondary" href="#learn">Learn About Islam</a>
+            <a className="btn btn-primary" href="#ai-daee">{tr(heroCopy.startAsking)}</a>
+            <a className="btn btn-secondary" href="#learn">{tr(heroCopy.learnAbout)}</a>
           </div>
         </div>
         <div className="hero-panel">
           <div className="arabic">ٱدْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِٱلْحِكْمَةِ</div>
-          <h3>Dawah to Humanity bil Hikmah</h3>
-          <p>
-            A premium Islamic research and Dawah institution from India, presenting Islam
-            intellectually, compassionately, and professionally.
-          </p>
+          <h3>{heroCopy.panelTitle}</h3>
+          <p>{tr(heroCopy.panelBody)}</p>
           <div className="mini-stat">
             <strong>{heroStats.value}</strong>
-            <span>{heroStats.label}</span>
+            <span>{tr(heroStats.label)}</span>
           </div>
         </div>
       </div>

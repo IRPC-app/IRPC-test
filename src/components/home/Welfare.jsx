@@ -1,19 +1,21 @@
-import { welfareProjects } from "../../data/content";
+import { welfareProjects, welfareCopy } from "../../data/content";
+import { useTranslate } from "../../i18n/LanguageContext";
 
 export default function Welfare() {
+  const tr = useTranslate();
   return (
     <section id="welfare" className="section">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow">Welfare</p>
-          <h2>Serving humanity alongside Dawah.</h2>
-          <p>IRPC's welfare arm supports underserved communities regardless of faith.</p>
+          <p className="eyebrow">{tr(welfareCopy.eyebrow)}</p>
+          <h2>{tr(welfareCopy.heading)}</h2>
+          <p>{tr(welfareCopy.body)}</p>
         </div>
         <div className="cards four">
           {welfareProjects.map((project) => (
-            <article className="card" key={project.title}>
-              <h3>{project.title}</h3>
-              <p>{project.body}</p>
+            <article className="card" key={project.title.en}>
+              <h3>{tr(project.title)}</h3>
+              <p>{tr(project.body)}</p>
             </article>
           ))}
         </div>

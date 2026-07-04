@@ -1,26 +1,25 @@
-import { aiFeatures, aiChatDemo } from "../../data/content";
+import { aiFeatures, aiChatDemo, aiDaeeCopy } from "../../data/content";
+import { useTranslate } from "../../i18n/LanguageContext";
 
 export default function AIDaeeSection() {
+  const tr = useTranslate();
   return (
     <section id="ai-daee" className="section dark">
       <div className="container split">
         <div>
-          <p className="eyebrow">Moonshot Vision</p>
-          <h2>Build the world's most advanced AI Da'ee.</h2>
-          <p>
-            Not just a chatbot — a 24/7 digital ambassador for Islam that answers with wisdom,
-            references, multilingual support, and scholar escalation.
-          </p>
+          <p className="eyebrow">{tr(aiDaeeCopy.eyebrow)}</p>
+          <h2>{tr(aiDaeeCopy.heading)}</h2>
+          <p>{tr(aiDaeeCopy.body)}</p>
           <ul className="checklist">
             {aiFeatures.map((feature) => (
-              <li key={feature}>{feature}</li>
+              <li key={feature.en}>{tr(feature)}</li>
             ))}
           </ul>
         </div>
         <div className="ai-window">
-          <div className="chat-row user">{aiChatDemo.question}</div>
-          <div className="chat-row ai">{aiChatDemo.answer}</div>
-          <div className="chat-input">Ask follow-up question...</div>
+          <div className="chat-row user">{tr(aiChatDemo.question)}</div>
+          <div className="chat-row ai">{tr(aiChatDemo.answer)}</div>
+          <div className="chat-input">{tr(aiDaeeCopy.chatInputPlaceholder)}</div>
         </div>
       </div>
     </section>
