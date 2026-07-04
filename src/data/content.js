@@ -193,6 +193,8 @@ export const aiDaeeCopy = {
     "مزید سوال پوچھیں...",
     "Mazeed sawal poochein..."
   ),
+  send: tx("Send", "भेजें", "بھیجیں", "Bhejein"),
+  thinking: tx("Thinking...", "सोच रहे हैं...", "سوچ رہے ہیں...", "Soch Rahe Hain..."),
 };
 
 export const aiChatDemo = {

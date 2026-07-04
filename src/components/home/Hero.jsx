@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { quickQuestions, heroCopy, heroStats } from "../../data/content";
 import { useTranslate } from "../../i18n/LanguageContext";
+import { useAiDaee } from "../../context/AiDaeeContext";
 
 export default function Hero() {
   const tr = useTranslate();
+  const { setPendingQuestion } = useAiDaee();
   const [question, setQuestion] = useState("");
 
   const handleAsk = (event) => {
     event.preventDefault();
+    if (question.trim()) setPendingQuestion(question.trim());
     document.getElementById("ai-daee")?.scrollIntoView({ behavior: "smooth" });
   };
 
